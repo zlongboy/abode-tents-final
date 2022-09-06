@@ -1,0 +1,22 @@
+script(defer, src="/javascripts/carousel.js", type='text/javascript')
+.carousel__container 
+    .carousel-img__container 
+        img(src="/imgs/yellow-forest-night.jpg" alt="Yellow tent in forest lit up at night")
+    .carousel-img__container 
+        img(src="/imgs/campsite-forest-night.jpg" alt="Multiple tents in forest lit up at night")
+    .carousel-img__container 
+        img(src="/imgs/two-grey-lake-day.jpg" alt="Two tents pitched next to lake with mountains in background")
+    .carousel__header
+        .header__container 
+            h1.header__title 
+                span.title-thin LIVE
+                span.title-bar |
+                span.title-bold ADVENTURE 
+            .header__subtitle The perfect tent for wherever life takes you 
+            a(href="/shop")
+                button.header__cta.btn-animate SHOP NOW 
+    .slider-btn__container
+        button.slider-btn.carousel__btn--prev 
+            img.slider-btn__icon(src="imgs/left_arrow_icon.svg", alt="Left arrow icon")
+        button.slider-btn.carousel__btn--next 
+            img.slider-btn__icon(src="imgs/right_arrow_icon.svg", alt="Right arrow icon")

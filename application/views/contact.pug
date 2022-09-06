@@ -1,0 +1,10 @@
+extends layout 
+
+block content
+    script(defer, src="/javascripts/contact.js", type='text/javascript')
+    section.container.mt0 
+        .contact__container
+            h2.section-header Contact Us 
+            p.contact__subhead 24/7 customer service on hand for tent reccomendations and questions regarding shipping, order status, or payment details
+            include includes/ContactForm
+    include includes/About

@@ -1,0 +1,45 @@
+form#contact-form(class="form__container", action="#")
+    .input__container 
+        input(type="text", name="firstName", placeholder="First name")
+        span#firstName-error-msg.error-msg 
+    .input__container 
+        input(type="text", name="lastName", placeholder="Last name")
+        span#lastName-error-msg.error-msg
+    .input__container 
+        input(type="text", name="email", placeholder="Email")
+        span#email-error-msg.error-msg
+    .input__container 
+        input(type="tel", name="phone", placeholder="Phone")
+        span#phone-error-msg.error-msg
+    h4.contact-method Preferred contact method?
+    .contact-method.contact-method__radio
+        div 
+            input#contact-1(type="radio", name="contact-method")
+            label(for="contact-1") Email 
+        div 
+            input#contact-2(type="radio", name="contact-method")
+            label(for="contact-2") Phone
+    .referrer__container
+        h3 How did you hear about us?
+        .radio__container 
+            div 
+                input#ref-1(type="radio", name="referrer")
+                label(for="ref-1") Conference 
+            div 
+                input#ref-2(type="radio", name="referrer")
+                label(for="ref-2") TV
+            div 
+                input#ref-3(type="radio", name="referrer")
+                label(for="ref-3") Radio
+            div 
+                input#ref-4(type="radio", name="referrer")
+                label(for="ref-4") Online
+            div 
+                input#ref-5(type="radio", name="referrer")
+                label(for="ref-5") Word of mouth
+            div 
+                input#ref-6(type="radio", name="referrer")
+                label(for="ref-6") Other
+    textarea.comment(type="text", name="comment", placeholder="Comment")
+    button.section__cta.form__cta.btn__animate(type="submit") SUBMIT
+            

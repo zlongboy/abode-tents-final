@@ -1,0 +1,72 @@
+extends layout 
+
+block content
+  script(defer, src="/javascripts/filters.js", type='text/javascript')
+  section.container.mt0 
+    h2.section-header Search &amp; compare
+    include includes/SearchBar
+    if isSearch 
+      a.clear-search__link(href="/shop") Clear search 
+  section.container.mt0
+    .results__container 
+      .filters__container 
+        .filters__header 
+          h3 Filters 
+            img.filters-icon(src="/imgs/filters-icon.png", alt="Filters icon")
+          .results-showing
+            if prods.length > 1
+              span showing #{prods.length} results
+            else 
+              span showing #{prods.length} result
+        form#filters-form(action="/compare", method='POST') 
+          .checklist.sort-by__container 
+            div 
+              b SORT BY 
+            select.sort-by__select(name="sortBy")
+              option(value="top-rated" selected= filterState.sortBy.topRated) Top Rated 
+              option(value="min-price" selected= filterState.sortBy.minPrice) Price: Low - High
+              option(value="max-price" selected= filterState.sortBy.maxPrice) Price: High - Low
+          .checklist__container.hide
+            .checklist 
+              div 
+                b BRAND
+              ul 
+              
+                li
+                  input(type="checkbox", value='Kelty', name="brand", checked= filterState.brandCheck.kelty)
+                  | Kelty
+                li
+                  input(type="checkbox", value='Marmot', name="brand", checked= filterState.brandCheck.marmot)
+                  | Marmot
+                li
+                  input(type="checkbox", value='The North Face', name="brand", checked= filterState.brandCheck.northFace)
+                  | The North Face 
+                li
+                  input(type="checkbox", value='REI Co-op', name="brand", checked= filterState.brandCheck.rei)
+                  | REI Co-op
+            .checklist 
+              div 
+                b CAPACITY
+              ul 
+                li
+                  input(type="checkbox", value='1', name="capacity" checked= filterState.capacityCheck.one)
+                  | 1 person
+                li
+                  input(type="checkbox", value='2', name="capacity" checked= filterState.capacityCheck.two)
+                  | 2 person
+                li
+                  input(type="checkbox", value='3', name="capacity" checked= filterState.capacityCheck.three)
+                  | 3 person 
+                li
+                  input(type="checkbox", value='4', name="capacity" checked= filterState.capacityCheck.four)
+                  | 4 person
+                li
+                  input(type="checkbox", value='5', name="capacity" checked= filterState.capacityCheck.five)
+                  | 5 person
+                li
+                  input(type="checkbox", value='6', name="capacity" checked= filterState.capacityCheck.six)
+                  | 6 person  
+                li
+                  input(type="checkbox", value='7', name="capacity" checked= filterState.capacityCheck.seven)
+                  | 7+ person
+      include includes/Products   

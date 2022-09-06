@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title= title
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap", type="text/css")
+    style
+      include ../public/stylesheets/main.css 
+
+  body
+    article
+      nav(class=isSecondary ? "nav__container nav-secondary" : "nav__container") 
+        a(href="/")
+          .logo ABODE
+        if navSearchBar
+          include includes/SearchBar
+        a(href="#", class="nav__hamburger")
+          span.hamburger__bar  
+          span.hamburger__bar  
+          span.hamburger__bar
+        .nav__links
+          ul
+            li 
+              a(href="/shop") SHOP  
+            li 
+              a(href="/contact") CONTACT US
+            li 
+              a(href="#", class="icon-link")
+                img(src="./imgs/cart.svg", alt="Cart icon")
+      block content
+      footer
+        div &copy; 2022 ABODE. All Rights Reserved.
+        a(href="#") Terms &amp; Privacy 

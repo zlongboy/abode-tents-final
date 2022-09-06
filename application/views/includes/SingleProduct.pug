@@ -1,0 +1,64 @@
+script(defer, src="/javascripts/carousel.js", type='text/javascript')
+section.container.mt0
+    .pdp-back__btn
+        img(src="/imgs/left_arrow_icon.svg", alt="Left arrow icon")
+        a(href="/shop") back to search results 
+    .pdp__container 
+        .carousel__container.pdp-carousel__container 
+            for image in singleProd.images 
+                .carousel-img__container
+                    img(src=`/imgs/${image}`)
+            .slider-btn__container 
+                button.slider-btn.carousel__btn--prev
+                    img.slider-btn__icon(src="/imgs/left_arrow_icon.svg", alt="Left arrow icon")
+                button.slider-btn.carousel__btn--next
+                    img.slider-btn__icon(src="/imgs/right_arrow_icon.svg", alt="Right arrow icon")
+        .pdp-details__container 
+            .pdp-title 
+                b #{singleProd.brand}
+                |  #{singleProd.name}
+            - const keywordStr = singleProd.keywords.join(', ')
+            .pdp-keywords #{keywordStr}
+            .pdp-review 
+                .stars__container
+                    span #{singleProd.score}.0
+                    - for (let i=0; i < singleProd.score; i++)
+                        img(src="/imgs/star.png", alt="Star icon") 
+                    //- span #{singleProd.score}.0
+                    span 
+                        em ABODE review 
+            ul.pdp-highlights
+                for highlight in singleProd.highlights
+                    li #{highlight} 
+            .pdp-price 
+                span $ #{singleProd.price}
+                select.quantity__select(name="quantity")
+                    option 1 
+                    option 2 
+                    option 3 
+                    option 4 
+                    option 5
+            button.pdp-cart__cta Add to cart 
+            a.product-card__btn(href="#", style="align-self: center;")
+                span BUY NOW
+            table.pdp-details__table 
+                tr 
+                    td 
+                        b Capacity 
+                    td #{singleProd.capacity}-person
+                tr 
+                    td 
+                        b Season 
+                    td #{singleProd.season}
+                tr 
+                    td 
+                        b Weight 
+                    td #{singleProd.weight} pounds
+                tr 
+                    td 
+                        b Floor Area 
+                    td #{singleProd.floorArea} square feet
+                tr 
+                    td 
+                        b Color
+                    td #{singleProd.color}   

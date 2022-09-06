@@ -1,0 +1,34 @@
+section(class= prodsContainerClass)
+    if sectionName
+        h2.section-header= sectionName
+    .product-card__container
+        if prods.length > 0
+            each product in prods
+                .product-card 
+                    .product-img__container
+                        img(src=`/imgs/${product.images[0]}`)
+                    .product-title 
+                        b #{product.brand}
+                        |  #{product.name}
+                    .product-summary__container 
+                        .product-summary__price $ #{product.price}  
+                        .product-summary__capacity 
+                            b CAPACITY
+                            | #{product.capacity}-Person
+                        .product-summary__rating
+                            i ABODE Review 
+                            .stars__container
+                                - for (let i=0; i < product.score; i++)
+                                    img(src="/imgs/star.png", alt="Star icon", style="height: 0.8rem; width: auto;") 
+                                span(style="margin-left: 0.2rem;") #{product.score}.0
+                        a.product-card__btn(href=`${product.url}`)
+                            span SHOP NOW
+                    if product.featured 
+                        .product-featured
+                            span Top rated
+        else
+            h1 No products found
+                
+    if sectionBtn
+        a.see-more__cta(href="/shop")
+            button.section__cta.btn-animate SEE MORE

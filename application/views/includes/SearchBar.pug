@@ -1,0 +1,6 @@
+- let formClass = "nav__search" 
+- if (productsSearchBar) { formClass = "nav__search products-search__bar"}
+
+form(class= formClass, method="POST", action=`/shop`)
+    img(src="./imgs/search-thin_icon.svg", alt="Magnifying glass icon")
+    input(type="text", placeholder="Search tents", name="q")
