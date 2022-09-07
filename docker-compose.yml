@@ -4,8 +4,8 @@ services:
 
   database:
     image: mysql:latest
-    networks:
-      - abode
+    # networks:
+    #   - abode
     ports:
       - 3306:3306
     command: '--default-authentication-plugin=mysql_native_password'
@@ -44,17 +44,15 @@ services:
     volumes:
       - ./application:/usr/app
       - /usr/app/node_modules
-    networks:
-      - abode
+    # networks:
+    #   - abode
     env_file:
       - ./application/.env
     depends_on: 
       - api
-    # ports:
-    #   - 8080:80
 
-networks:
-  abode: {}
+# networks:
+#   abode: {}
 
 volumes:
   database-data:

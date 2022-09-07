@@ -6,8 +6,8 @@ VALUES
     false, 
     'Marmot', 
     'Limestone', 
-    JSON_ARRAY("/imgs/products/marmot_limestone.png"),
-    "/kelty-rumpus.html",
+    JSON_ARRAY("marmot_limestone.png"),
+    "/kelty-rumpus",
     389.00,
     4,
     '4-season',
@@ -35,6 +35,7 @@ VALUES
     3,
     JSON_ARRAY("Near-vertical walls create lots of standing room and are ideal when camping with air mattress and cots","Cabin style model has a divider down the middle so you can easily split up the room between two families", "Zippered E! Powerport lets you easily run an extension cord inside so you can keep everyone’s gadgets charged"),
     JSON_ARRAY("cabin-style tent","smart features","casual camping")
-);
+)
+;
 
 	

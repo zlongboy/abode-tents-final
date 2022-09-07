@@ -29,7 +29,7 @@ async function getPDP(sku) {
         const { results } = await response.data
         return results
     } catch (err) {
-        return console.log(err);
+        return console.log("PRODS REQUEST FAILED GGGG \n" + err);
     };
 };
 
@@ -51,6 +51,12 @@ async function searchProducts(q) {
 };
 
 const sortProducts = function(allProducts, by) {
+
+    // if (!Array.isArray(allProducts)) {
+    //     console.log(allProducts)
+    //     return allProducts
+    // }
+    
     switch (by) {
         case 'top-rated':
             return allProducts.sort((a, b) => { return b.score - a.score });
@@ -60,7 +66,6 @@ const sortProducts = function(allProducts, by) {
             return allProducts.sort((a, b) => { return a.price - b.price });
         default:
             return allProducts
-
     }
 };
 
