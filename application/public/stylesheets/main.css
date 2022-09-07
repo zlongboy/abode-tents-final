@@ -571,7 +571,7 @@ input, textarea {
     .filters__container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        align-items: center;
+        align-items: start;
         justify-items: center;
         margin-bottom: 1.6rem;
     }
@@ -579,8 +579,14 @@ input, textarea {
         margin: 0;
         padding: 0;
     }
+    #filters-form {
+        grid-column: 2 / -1;
+        grid-row: 1 / -1;
+     }
     .filters__header {
-        margin-top: 2rem;
+       grid-column: 1 / 2;
+       grid-row: 1 / 2;
+       margin-top: 1rem;
     }
     .filters__header img {
         display: inline;
