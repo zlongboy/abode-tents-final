@@ -9,7 +9,6 @@ services:
       - ita
     ports:
       - 3306:3306
-    # command: '--default-authentication-plugin=mysql_native_password'
     volumes:
       - database-data:/var/lib/mysql
       - "./database/schema.sql:/docker-entrypoint-initdb.d/1.sql"
@@ -33,7 +32,6 @@ services:
       - 3030:3030
     env_file:
       - ./api/.env
-
   
   application:
     build:
