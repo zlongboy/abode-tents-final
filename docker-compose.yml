@@ -36,16 +36,11 @@ services:
 
   
   application:
-    build: ./application
-    #   context: .
-    #   dockerfile: ./application/Dockerfile
-    command: npm start
-    image: node:16
+    build:
+      context: ./application
+      dockerfile: application.dockerfile
     ports:
       - 3000:3000
-    volumes:
-      - ./application:/usr/app
-      - /usr/app/node_modules
     networks:
       - ita
     env_file:

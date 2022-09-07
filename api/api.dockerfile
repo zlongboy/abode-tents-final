@@ -12,7 +12,7 @@ RUN go mod download
 RUN go build -o server .
 
 FROM alpine:3.15
-EXPOSE 8080
+EXPOSE 3030
 
 COPY --from=build /go/src/github.com/zlongboy/abode-tents-final/api/server /server
 CMD ["/server"]

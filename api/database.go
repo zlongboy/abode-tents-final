@@ -86,8 +86,8 @@ func parseResults(rows *sqlx.Rows) []byte {
 }
 
 func (c DBConfig) OpenDB() *sqlx.DB {
-	// db, err := sqlx.Open("mysql", fmt.Sprintf("root:%v@tcp(docker.for.mac.localhost:3306)/tents", c.Pass)) // Troubleshooting for Docker
-	db, err := sqlx.Open("mysql", fmt.Sprintf("%v:%v@tcp(%v)/%v", c.User, c.Pass, c.HostPort, c.Name))
+	db, err := sqlx.Open("mysql", fmt.Sprintf("root:%v@tcp(docker.for.mac.localhost:3306)/%v", c.Pass, c.Name)) // Troubleshooting for Docker
+	// db, err := sqlx.Open("mysql", fmt.Sprintf("%v:%v@tcp(%v)/%v", c.User, c.Pass, c.HostPort, c.Name))
 	if err != nil {
 		panic(err.Error())
 	}
