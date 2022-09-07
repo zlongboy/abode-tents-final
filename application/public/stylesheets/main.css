@@ -566,7 +566,7 @@ input, textarea {
 @media (max-width: 500px) {
     .results__container {
         flex-direction: column;
-        margin: 1rem;
+        margin: 0rem 1rem;
     }
     .filters__container {
         display: grid;
@@ -580,7 +580,7 @@ input, textarea {
         padding: 0;
     }
     .filters__header {
-        margin-top: 1rem;
+        margin-top: 2rem;
     }
     .filters__header img {
         display: inline;
