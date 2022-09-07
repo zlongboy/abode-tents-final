@@ -6,9 +6,6 @@ async function getProducts() {
     try {
         const response = await axios(`${url}:3030/products`, {
             method: 'get',
-            // headers: {
-            //     "Authorization": process.env.API_KEY
-            // },
             timeout: 5000
         })
         const { results } = await response.data
@@ -23,9 +20,6 @@ async function getPDP(sku) {
     try {
         const response = await axios(`${url}:3030/products${queryString}`, {
             method: 'get',
-            // headers: {
-            //     "Authorization": process.env.API_KEY
-            // },
             timeout: 5000
         })
         const { results } = await response.data
@@ -40,16 +34,12 @@ async function searchProducts(q) {
     try {
         const response = await axios(`${url}:3030/products/search${queryString}`, {
             method: 'post',
-            // headers: {
-            //     "Authorization": process.env.API_KEY
-            // },
             timeout: 5000
         })
         const { results } = await response.data
         return results
     } catch (err) {
-        // console.log("Application Request Error")
-        return console.log("Application Request Error");
+        return console.log(err);
     };
 };
 
@@ -65,7 +55,6 @@ const sortProducts = function(allProducts, by) {
             return allProducts
     }
 };
-
 
 async function filterProducts(body) { 
     
@@ -88,9 +77,6 @@ async function filterProducts(body) {
     try {
         const response = await axios(`${url}:3030/products/filter${queryString}`, {
             method: 'get',
-            // headers: {
-            //     "Authorization": process.env.API_KEY
-            // },
             timeout: 5000
         })
         const { results } = await response.data
@@ -100,6 +86,7 @@ async function filterProducts(body) {
     };
 };
 
+// State management for filters
 class SortBy {
     constructor(opt1, opt2, opt3) {
         this.topRated = opt1

@@ -16,7 +16,6 @@ const errorContainer = function(inputErrored) {
   return document.querySelector(`#${inputErrored}-error-msg`);
 };
 
-// Error utility functions
 function applyErrorStyles(input, div, msg) {
   input.classList.add('error-input');
   div.innerText = msg;
@@ -74,7 +73,7 @@ const checkInput = function(inputName, isValid) {
   return isValid(input(inputName).value, input(inputName), errorContainer(inputName));
 }
 
-// Run validation on submit
+// Run all validation on submit
 form.addEventListener('submit', function(element) {
   element.preventDefault();
 
