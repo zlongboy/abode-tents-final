@@ -12,7 +12,7 @@ router.get('/', async function(req, res, next) {
             title: `Kelty Rumpus | ABODE`,
             sectionName: 'Similar products',
             singleProd: pdpProd[0],
-            prods: products.getFeatured(allProds),
+            prods: allProds.slice(0, 3),
             isSecondary: true,
             navSearchBar: true,
             prodsContainerClass: 'featured__container'

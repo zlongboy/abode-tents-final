@@ -1,8 +1,10 @@
 const axios = require('axios')
 
+const url = 'http://api'
+
 async function getProducts() { 
     try {
-        const response = await axios(`http://localhost:3030/products`, {
+        const response = await axios(`${url}:3030/products`, {
             method: 'get',
             // headers: {
             //     "Authorization": process.env.API_KEY
@@ -19,25 +21,8 @@ async function getProducts() {
 async function getPDP(sku) { 
     const queryString = `?sku=${sku}`
     try {
-        const response = await axios(`http://localhost:3030/products${queryString}`, {
+        const response = await axios(`${url}:3030/products${queryString}`, {
             method: 'get',
-            // headers: {
-            //     "Authorization": process.env.API_KEY
-            // },
-            timeout: 5000
-        })
-        const { results } = await response.data
-        return results
-    } catch (err) {
-        return console.log("PRODS REQUEST FAILED GGGG \n" + err);
-    };
-};
-
-async function searchProducts(q) { 
-    const queryString = `?q=${q}`
-    try {
-        const response = await axios(`http://localhost:3030/products/search${queryString}`, {
-            method: 'post',
             // headers: {
             //     "Authorization": process.env.API_KEY
             // },
@@ -50,18 +35,30 @@ async function searchProducts(q) {
     };
 };
 
-const sortProducts = function(allProducts, by) {
+async function searchProducts(q) { 
+    const queryString = `?q=${q}`
+    try {
+        const response = await axios(`${url}:3030/products/search${queryString}`, {
+            method: 'post',
+            // headers: {
+            //     "Authorization": process.env.API_KEY
+            // },
+            timeout: 5000
+        })
+        const { results } = await response.data
+        return results
+    } catch (err) {
+        // console.log("Application Request Error")
+        return console.log("Application Request Error");
+    };
+};
 
-    // if (!Array.isArray(allProducts)) {
-    //     console.log(allProducts)
-    //     return allProducts
-    // }
-    
+const sortProducts = function(allProducts, by) {
     switch (by) {
         case 'top-rated':
             return allProducts.sort((a, b) => { return b.score - a.score });
         case 'max-price':
-            return allProducts.sort((a, b) => { return a.price - b.price });
+            return allProducts.sort((a, b) => { return b.price - a.price });
         case 'min-price':
             return allProducts.sort((a, b) => { return a.price - b.price });
         default:
@@ -89,7 +86,7 @@ async function filterProducts(body) {
     }
     
     try {
-        const response = await axios(`http://localhost:3030/products/filter${queryString}`, {
+        const response = await axios(`${url}:3030/products/filter${queryString}`, {
             method: 'get',
             // headers: {
             //     "Authorization": process.env.API_KEY

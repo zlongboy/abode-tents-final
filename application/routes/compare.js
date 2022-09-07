@@ -5,7 +5,7 @@ const products = require('../public/javascripts/products');
 const router = express.Router();
 
 router.post('/', async function(req, res, next) {
-    const filteredProds = await products.filterProducts(req.body)
+    let filteredProds = await products.filterProducts(req.body)
 
     res.render('shop', {
         title: "Compare tents | ABODE",
