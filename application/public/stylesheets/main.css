@@ -598,7 +598,6 @@ input, textarea {
         cursor: pointer;
     }
     .checklist__container {
-        grid-column: 1 / -1;
         display: flex;
         gap: 1.6rem;
         margin-bottom: 2rem;
