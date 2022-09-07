@@ -39,8 +39,6 @@ func (qc QueryConfig) constructQuery() string {
 	} else {
 		queryString = fmt.Sprintf("SELECT * FROM %s WHERE active = TRUE", qc.Table)
 	}
-
-	fmt.Println(queryString)
 	return queryString
 }
 
@@ -88,7 +86,8 @@ func parseResults(rows *sqlx.Rows) []byte {
 }
 
 func (c DBConfig) OpenDB() *sqlx.DB {
-	db, err := sqlx.Open("mysql", fmt.Sprintf("%v:%v@tcp(%v)/%v", c.User, c.Pass, c.HostPort, c.Name))
+	db, err := sqlx.Open("mysql", "root:password@tcp(docker.for.mac.localhost:3306)/tents") // Changed for Docker
+	// db, err := sqlx.Open("mysql", fmt.Sprintf("%v:%v@tcp(%v)/%v", c.User, c.Pass, c.HostPort, c.Name))
 	if err != nil {
 		panic(err.Error())
 	}
