@@ -1,5 +1,11 @@
-FROM node:16-alpine
-COPY . .
-RUN npm install
-EXPOSE 3002
-CMD ["node" "app.js"]
+FROM node:16
+
+# WORKDIR /usr/src/application
+
+# # COPY package*.json ./
+
+# COPY . .
+# RUN npm install
+
+# EXPOSE 3000
+# CMD ["node", "app.js"]

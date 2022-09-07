@@ -4,9 +4,9 @@ async function getProducts() {
     try {
         const response = await axios(`http://localhost:3030/products`, {
             method: 'get',
-            headers: {
-                "Authorization": process.env.API_KEY
-            },
+            // headers: {
+            //     "Authorization": process.env.API_KEY
+            // },
             timeout: 5000
         })
         const { results } = await response.data
@@ -21,9 +21,9 @@ async function getPDP(sku) {
     try {
         const response = await axios(`http://localhost:3030/products${queryString}`, {
             method: 'get',
-            headers: {
-                "Authorization": process.env.API_KEY
-            },
+            // headers: {
+            //     "Authorization": process.env.API_KEY
+            // },
             timeout: 5000
         })
         const { results } = await response.data
@@ -38,9 +38,9 @@ async function searchProducts(q) {
     try {
         const response = await axios(`http://localhost:3030/products/search${queryString}`, {
             method: 'post',
-            headers: {
-                "Authorization": process.env.API_KEY
-            },
+            // headers: {
+            //     "Authorization": process.env.API_KEY
+            // },
             timeout: 5000
         })
         const { results } = await response.data
@@ -86,9 +86,9 @@ async function filterProducts(body) {
     try {
         const response = await axios(`http://localhost:3030/products/filter${queryString}`, {
             method: 'get',
-            headers: {
-                "Authorization": process.env.API_KEY
-            },
+            // headers: {
+            //     "Authorization": process.env.API_KEY
+            // },
             timeout: 5000
         })
         const { results } = await response.data

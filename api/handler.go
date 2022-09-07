@@ -1,9 +1,7 @@
 package main
 
 import (
-	"log"
 	"net/http"
-	"os"
 )
 
 func Health(w http.ResponseWriter, r *http.Request) {
@@ -11,23 +9,23 @@ func Health(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetProducts(w http.ResponseWriter, r *http.Request) {
-	if !checkAuth(w, r) {
-		return
-	}
+	// if !checkAuth(w, r) {
+	// 	return
+	// }
 
 	params := parseParams(r)
 
 	buildResponse(w, http.StatusOK, readProducts(params))
 }
 
-func checkAuth(w http.ResponseWriter, r *http.Request) bool {
-	key := r.Header.Get("Authorization")
-	if key != os.Getenv("TEST_API_KEY") {
-		buildResponse(w, http.StatusForbidden, []byte("Invalid credentials"))
-		return false
-	}
-	return true
-}
+// func checkAuth(w http.ResponseWriter, r *http.Request) bool {
+// 	key := r.Header.Get("Authorization")
+// 	if key != os.Getenv("TEST_API_KEY") {
+// 		buildResponse(w, http.StatusForbidden, []byte("Invalid credentials"))
+// 		return false
+// 	}
+// 	return true
+// }
 
 func buildResponse(w http.ResponseWriter, status int, body []byte) {
 	w.Header().Set("Content-Type", "application/json")
@@ -43,11 +41,6 @@ func parseParams(r *http.Request) QueryConfig {
 
 	params.Brand = r.URL.Query()["brand"]
 	params.Capacity = r.URL.Query()["capacity"]
-
-	log.Println(params.Brand)
-	log.Println(params.Capacity)
-
-	// log.Println(params) // Log params // TO DELETE ahead of release
 
 	return params
 }

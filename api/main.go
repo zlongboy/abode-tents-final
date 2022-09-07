@@ -8,14 +8,14 @@ import (
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/cors"
-	"github.com/joho/godotenv"
+	// "github.com/joho/godotenv"
 )
 
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatalf("Error loading env: %v", err)
-	}
+	// err := godotenv.Load()
+	// if err != nil {
+	// 	log.Fatalf("Error loading env: %v", err)
+	// }
 
 	port := fmt.Sprintf(":%v", os.Getenv("SERVER_PORT"))
 	fmt.Printf("Starting server on %v \n", port)
